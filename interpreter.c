@@ -13,23 +13,29 @@ void interpreter(char *argv[])
 	char *line = NULL;
 	size_t bufsize = 0;
 	char **args;
-	int status = 1;
+	void (*function)(stack_t **, unsigned int);
+	unsigned int line_number = 1;
+	stack_t *stack = NULL;
 
 	file = fopen(argv[1], "r");
 	if (file == NULL)
 	{
-		printf("error while open file\n"); /* falta cambiar */
+		printf("Error: Can't open file %s\n", argv[1]);
+		exit(EXIT_FAILURE);
 	}
 	while (getline(&line, &bufsize, file) != -1)
 	{
 		args = split_line(line);
-		status = execute_args(args);
-		if (status == 1)
+		function = get_function(args[0]);
+		if (function == NULL)
 		{
-			printf("all good\n");
+			printf("Invalid command\n");
+			exit(EXIT_FAILURE);
 		}
-		free(args); /* avoid memory leaks */
+		function(&stack, line_number);
+		line_number++;
+		free(args);
 	}
-	free(line); /* avoid memory leaks */
+	free(line);
 	fclose(file);
 }

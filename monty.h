@@ -6,6 +6,8 @@
 #include <stdlib.h>
 #include <string.h>
 
+int glb_number;
+
 /* ---GLOBAL VARS--- */
 #define TOK_DELIM " \t\r\n\a$"
 
@@ -45,8 +47,16 @@ typedef struct instruction_s
 /* ---PROTOTYPES--- */
 void interpreter(char *argv[]);
 char **split_line(char *line);
+void (*get_function(char *command))(stack_t **, unsigned int);
 int execute_args(char **args);
-int push(char **args);
-int pall(char **args);
+void push(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int line_number);
+
+
+static const instruction_t commands_hashmap[] = {
+	{"push", push},
+	{"pall", pall},
+	{NULL, NULL}
+};
 
 #endif
