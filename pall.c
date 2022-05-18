@@ -3,7 +3,7 @@
 /**
  * pall - function that prints the elements of a stack
  * @stack: element at the top of the stack (head)
- * @line_number: line number of the command line in the file .m
+ * @line_number: line number of the command in the file .m
  *
  * Return: void
  */

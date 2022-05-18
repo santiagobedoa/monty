@@ -3,7 +3,7 @@
 /**
  * push - function that adds a node to the stack
  * @stack: element at the top of the stack
- * @line_number: line number of the command line in the file .m
+ * @line_number: line number of the command in the file .m
  *
  * Return: void
  */
