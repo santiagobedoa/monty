@@ -45,5 +45,8 @@ typedef struct instruction_s
 /* ---PROTOTYPES--- */
 void interpreter(char *argv[]);
 char **split_line(char *line);
+int execute_args(char **args);
+int push(char **args);
+int pall(char **args);
 
 #endif

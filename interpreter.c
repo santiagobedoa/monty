@@ -13,6 +13,7 @@ void interpreter(char *argv[])
 	char *line = NULL;
 	size_t bufsize = 0;
 	char **args;
+	int status = 1;
 
 	file = fopen(argv[1], "r");
 	if (file == NULL)
@@ -22,10 +23,10 @@ void interpreter(char *argv[])
 	while (getline(&line, &bufsize, file) != -1)
 	{
 		args = split_line(line);
-		if (args)
+		status = execute_args(args);
+		if (status == 1)
 		{
-			printf("%s", args[0]);
-			printf(" | %s\n", args[1]);
+			printf("all good\n");
 		}
 		free(args); /* avoid memory leaks */
 	}
