@@ -32,10 +32,12 @@ void interpreter(char *argv[])
 			printf("Invalid command\n");
 			exit(EXIT_FAILURE);
 		}
+		glb_number = atoi(argv[1]);
 		function(&stack, line_number);
 		line_number++;
 		free(args);
 	}
 	free(line);
+	free_stack(&stack);
 	fclose(file);
 }

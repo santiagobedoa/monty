@@ -1,11 +1,12 @@
 #include "monty.h"
 
 /**
- * push -push (add) node to list.
- * @stack: element at the top of the stack.
- * @line_number: constant int value in the structure
+ * push - function that adds a node to the stack
+ * @stack: element at the top of the stack
+ * @line_number: line number of the command line in the file .m
+ *
  * Return: void
- **/
+ */
 void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_node;
