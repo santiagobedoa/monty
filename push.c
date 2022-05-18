@@ -11,9 +11,13 @@ void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_node;
 
-	printf("hello from push!\n");
 	new_node = (stack_t *)malloc(sizeof(stack_t));
-	new_node->n = glb_number;
+	if (new_node == NULL)
+	{
+		fprintf(stderr, "Error: malloc failed\n");
+		exit(EXIT_FAILURE);
+	}
+	new_node->n = global_number;
 	new_node->next = NULL;
 	new_node->prev = NULL;
 

@@ -6,7 +6,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-int glb_number;
+int global_number;
 
 /* ---GLOBAL VARS--- */
 #define TOK_DELIM " \t\r\n\a$"

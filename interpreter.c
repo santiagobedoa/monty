@@ -26,13 +26,16 @@ void interpreter(char *argv[])
 	while (getline(&line, &bufsize, file) != -1)
 	{
 		args = split_line(line);
+		if (args[1])
+		{
+			global_number = atoi(args[1]);
+		}
 		function = get_function(args[0]);
 		if (function == NULL)
 		{
 			printf("Invalid command\n");
 			exit(EXIT_FAILURE);
 		}
-		glb_number = atoi(argv[1]);
 		function(&stack, line_number);
 		line_number++;
 		free(args);
