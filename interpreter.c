@@ -29,16 +29,16 @@ void interpreter(char *argv[])
 		if (args[1])
 		{
 			global_number = atoi(args[1]);
-			if (global_number == 0)
+			if (global_number == 0 && strcmp(args[1], "0") != 0) /* if n is not a num */
 			{
-				fprintf(stderr, "L%u: usage: push integer\n", line_number);
+				fprintf(stderr, "L%d: usage: push integer\n", line_number);
 				exit(EXIT_FAILURE);
 			}
 		}
 		function = get_function(args[0]);
 		if (function == NULL)
 		{
-			printf("Invalid command\n");
+			fprintf(stderr, "L%d: unknown instruction %s\n", line_number, args[0]);
 			exit(EXIT_FAILURE);
 		}
 		function(&stack, line_number);

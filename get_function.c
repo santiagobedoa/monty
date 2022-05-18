@@ -18,5 +18,5 @@ void (*get_function(char *command))(stack_t **, unsigned int)
 			return (commands_hashmap[i].f);
 		}
 	}
-	return (commands_hashmap[0].f);
+	return (NULL);
 }
