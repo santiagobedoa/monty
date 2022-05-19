@@ -29,8 +29,8 @@ void interpreter(char *argv[])
 		args = split_line(line);
 		if (args[0] == NULL || strcmp(args[0], "#") == 0)
 		{
-			continue;
 			line_number++;
+			continue;
 		}
 		function = get_function(args[0]);
 		if (function == NULL)
