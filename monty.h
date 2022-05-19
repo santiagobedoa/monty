@@ -9,6 +9,7 @@
 
 int global_number;
 int error_signal;
+char **args;
 
 /* ---GLOBAL VARS--- */
 #define TOK_DELIM " \t\r\n\a$"

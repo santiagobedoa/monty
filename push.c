@@ -11,8 +11,15 @@ void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_node;
 
+	global_number = atoi(args[1]);
 	new_node = (stack_t *)malloc(sizeof(stack_t));
-	if (new_node == NULL)
+	if (global_number == 0 && strcmp(args[1], "0") != 0)
+	{
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
+		error_signal = 1;
+		free(new_node);
+	}
+	else if (new_node == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
 		error_signal = 1;
