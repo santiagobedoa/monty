@@ -16,14 +16,14 @@ void pchar(stack_t **stack, unsigned int line_number)
 	}
 	else
 	{
-		if ((*stack)->n >= 33 && (*stack)->n <= 127)
-		{
-			printf("%c\n", (char)(*stack)->n);
-		}
-		else
+		if ((*stack)->n <= 0 || (*stack)->n >= 127)
 		{
 			fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
 			error_signal = 1;
+		}
+		else
+		{
+			printf("%c\n", (char)(*stack)->n);
 		}
 	}
 }
