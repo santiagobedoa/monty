@@ -11,34 +11,41 @@ void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_node;
 
-	global_number = atoi(args[1]);
-	new_node = (stack_t *)malloc(sizeof(stack_t));
-	if (global_number == 0 && strcmp(args[1], "0") != 0)
+	if (args[1] == NULL)
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
-		error_signal = 1;
-		free(new_node);
-	}
-	else if (new_node == NULL)
-	{
-		fprintf(stderr, "Error: malloc failed\n");
 		error_signal = 1;
 	}
 	else
 	{
-		new_node->n = global_number;
-		new_node->next = NULL;
-		new_node->prev = NULL;
-		if (*stack == NULL)
+		global_number = atoi(args[1]);
+		new_node = (stack_t *)malloc(sizeof(stack_t));
+		if (global_number == 0 && strcmp(args[1], "0") != 0)
 		{
-			*stack = new_node;
+			fprintf(stderr, "L%u: usage: push integer\n", line_number);
+			error_signal = 1;
+			free(new_node);
+		}
+		else if (new_node == NULL)
+		{
+			fprintf(stderr, "Error: malloc failed\n");
+			error_signal = 1;
 		}
 		else
 		{
-			(*stack)->next = new_node;
-			new_node->prev = *stack;
-			*stack = new_node;
+			new_node->n = global_number;
+			new_node->next = NULL;
+			new_node->prev = NULL;
+			if (*stack == NULL)
+			{
+				*stack = new_node;
+			}
+			else
+			{
+				(*stack)->next = new_node;
+				new_node->prev = *stack;
+				*stack = new_node;
+			}
 		}
 	}
-	(void)line_number;
 }
