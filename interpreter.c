@@ -39,7 +39,6 @@ void interpreter(char *argv[])
 		}
 		function(&stack, line_number);
 		line_number++;
-		free(args);
 	}
 	free(line);
 	free_stack(&stack);
