@@ -26,7 +26,6 @@ void interpreter(char *argv[])
 	{
 		if (error_signal == 1)
 		{
-			free(args);
 			break;
 		}
 		args = split_line(line);
@@ -39,6 +38,7 @@ void interpreter(char *argv[])
 		}
 		function(&stack, line_number);
 		line_number++;
+		free(args);
 	}
 	free(line);
 	free_stack(&stack);
