@@ -66,7 +66,7 @@ static const instruction_t commands_hashmap[] = {
 	{"pint", pint},
 	{"pop", pop},
 	{"swap", swap},
-	{"nop". nop},
+	{"nop", nop},
 	{NULL, NULL}
 };
 
