@@ -9,18 +9,21 @@
  */
 void rotr(stack_t **stack, unsigned int line_number)
 {
-	stack_t *tmp, *new;
+	stack_t *temp = *stack, *new;
 
-	tmp = *stack;
-	new = *stack;
-	while (tmp->prev != NULL)
+	if (*stack && (*stack)->next)
 	{
-		tmp = tmp->prev;
+		while (temp->next)
+		{
+			temp = temp->next;
+		}
+		new = malloc(sizeof(stack_t));
+		new->n = temp->n;
+		temp->prev->next = NULL;
+		free(temp);
+		new->next = *stack;
+		(*stack)->prev = new;
+		*stack = new;
 	}
-	(*stack)->prev->next = NULL;
-	*stack = (*stack)->prev;
-	tmp->prev = new;
-	new->next = tmp;
-	new->prev = NULL;
 	(void)line_number;
 }
