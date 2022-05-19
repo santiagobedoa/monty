@@ -66,6 +66,7 @@ void _mul(stack_t **stack, unsigned int line_number);
 void _mod(stack_t **stack, unsigned int line_number);
 void pchar(stack_t **stack, unsigned int line_number);
 void pstr(stack_t **stack, unsigned int line_number);
+void rotl(stack_t **stack, unsigned int line_number);
 
 static const instruction_t commands_hashmap[] = {
 	{"push", push},
@@ -81,6 +82,7 @@ static const instruction_t commands_hashmap[] = {
 	{"mod", _mod},
 	{"pchar", pchar},
 	{"pstr", pstr},
+	{"rotl", rotl},
 	{NULL, NULL}
 };
 
