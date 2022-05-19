@@ -27,7 +27,7 @@ void interpreter(char *argv[])
 		if (error_signal == 1)
 			break;
 		args = split_line(line);
-		if (args[0] == NULL)
+		if (args[0] == NULL || strcmp(args[0], "#") == 0)
 		{
 			continue;
 			line_number++;
