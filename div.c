@@ -5,7 +5,7 @@
  * @line_number: line number of the command in the file .m
  * Return: void
  */
-void div(stack_t **stack, unsigned int line_number)
+void _div(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp =*stack;
 	if (*stack == NULL)
