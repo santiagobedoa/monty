@@ -29,6 +29,11 @@ void interpreter(char *argv[])
 			break;
 		}
 		args = split_line(line);
+		if (args[0] == NULL)
+		{
+			continue;
+			line_number++;
+		}
 		function = get_function(args[0]);
 		if (function == NULL)
 		{
