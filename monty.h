@@ -74,7 +74,7 @@ static const instruction_t commands_hashmap[] = {
 	{"nop", nop},
 	{"sub", sub},
 	{"div", _div},
-	{"div", _mul},
+	{"mul", _mul},
 	{NULL, NULL}
 };
 
