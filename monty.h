@@ -62,6 +62,7 @@ void add(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
 void sub(stack_t **stack, unsigned int line_number);
 void _div(stack_t **stack, unsigned int line_number);
+void _mul(stack_t **stack, unsigned int line_number);
 
 static const instruction_t commands_hashmap[] = {
 	{"push", push},
@@ -73,6 +74,7 @@ static const instruction_t commands_hashmap[] = {
 	{"nop", nop},
 	{"sub", sub},
 	{"div", _div},
+	{"div", _mul},
 	{NULL, NULL}
 };
 
