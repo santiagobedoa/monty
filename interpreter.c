@@ -25,9 +25,7 @@ void interpreter(char *argv[])
 	while (getline(&line, &bufsize, file) != -1)
 	{
 		if (error_signal == 1)
-		{
 			break;
-		}
 		args = split_line(line);
 		if (args[0] == NULL)
 		{
@@ -49,7 +47,5 @@ void interpreter(char *argv[])
 	free_stack(&stack);
 	fclose(file);
 	if (error_signal)
-	{
 		exit(EXIT_FAILURE);
-	}
 }
