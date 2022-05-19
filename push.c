@@ -20,7 +20,8 @@ void push(stack_t **stack, unsigned int line_number)
 	{
 		global_number = atoi(args[1]);
 		new_node = (stack_t *)malloc(sizeof(stack_t));
-		if (global_number == 0 && strcmp(args[1], "0") != 0)
+		if (global_number == 0 && strcmp(args[1],
+			"0") != 0 && strcmp(args[1], "-0") != 0)
 		{
 			fprintf(stderr, "L%u: usage: push integer\n", line_number);
 			error_signal = 1;
