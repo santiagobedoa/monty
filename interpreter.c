@@ -19,7 +19,7 @@ void interpreter(char *argv[])
 	file = fopen(argv[1], "r");
 	if (file == NULL)
 	{
-		printf("Error: Can't open file %s\n", argv[1]);
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
 	while (getline(&line, &bufsize, file) != -1)
