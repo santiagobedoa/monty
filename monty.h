@@ -12,7 +12,7 @@ int error_signal;
 char **args;
 
 /* ---GLOBAL VARS--- */
-#define TOK_DELIM " \t\r\n\a$"
+#define TOK_DELIM " \t\r\n\a"
 
 /* ---STRUCTURES--- */
 
@@ -65,6 +65,7 @@ void _div(stack_t **stack, unsigned int line_number);
 void _mul(stack_t **stack, unsigned int line_number);
 void _mod(stack_t **stack, unsigned int line_number);
 void pchar(stack_t **stack, unsigned int line_number);
+void pstr(stack_t **stack, unsigned int line_number);
 
 static const instruction_t commands_hashmap[] = {
 	{"push", push},
@@ -79,6 +80,7 @@ static const instruction_t commands_hashmap[] = {
 	{"mul", _mul},
 	{"mod", _mod},
 	{"pchar", pchar},
+	{"pstr", pstr},
 	{NULL, NULL}
 };
 
