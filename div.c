@@ -23,8 +23,7 @@ void _div(stack_t **stack, unsigned int line_number)
 	}
 	else
 	{
-		tmp->next->n = tmp->next->n / tmp->n;
-		*stack = tmp->next;
-		free(tmp);
+		tmp->prev->n = tmp->prev->n / tmp->n;
+		pop(stack, line_number);
 	}
 }
