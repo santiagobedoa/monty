@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * mul - multiplies the second top element of the stack with the top element.
+ * _mul - multiplies the second top element of the stack with the top element.
  * @stack: element at the top of the stack (head)
  * @line_number: line number of the command in the file .m
  *

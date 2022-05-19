@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * mod - computes the rest of the division of the second top element of the stack by the top element.
+ * _mod - mod of the second top element of the stack by the top element.
  * @stack: element at the top of the stack (head)
  * @line_number: line number of the command in the file .m
  *
