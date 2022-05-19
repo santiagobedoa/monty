@@ -21,7 +21,7 @@ void _mod(stack_t **stack, unsigned int line_number)
 	}
 	else
 	{
-		(*stack)->prev->n = (*stack)->prev->n & (*stack)->n;
+		(*stack)->prev->n = (*stack)->prev->n % (*stack)->n;
 		pop(stack, line_number);
 	}
 }
