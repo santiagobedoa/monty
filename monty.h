@@ -5,8 +5,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <errno.h>
 
 int global_number;
+int error_signal;
 
 /* ---GLOBAL VARS--- */
 #define TOK_DELIM " \t\r\n\a$"

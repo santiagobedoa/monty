@@ -15,21 +15,23 @@ void push(stack_t **stack, unsigned int line_number)
 	if (new_node == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
-		exit(EXIT_FAILURE);
-	}
-	new_node->n = global_number;
-	new_node->next = NULL;
-	new_node->prev = NULL;
-
-	if (*stack == NULL)
-	{
-		*stack = new_node;
+		error_signal = 1;
 	}
 	else
 	{
-		(*stack)->next = new_node;
-		new_node->prev = *stack;
-		*stack = new_node;
+		new_node->n = global_number;
+		new_node->next = NULL;
+		new_node->prev = NULL;
+		if (*stack == NULL)
+		{
+			*stack = new_node;
+		}
+		else
+		{
+			(*stack)->next = new_node;
+			new_node->prev = *stack;
+			*stack = new_node;
+		}
 	}
 	(void)line_number;
 }

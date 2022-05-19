@@ -25,6 +25,11 @@ void interpreter(char *argv[])
 	}
 	while (getline(&line, &bufsize, file) != -1)
 	{
+		if (error_signal == 1)
+		{
+			free(args);
+			break;
+		}
 		args = split_line(line);
 		if (args[1])
 		{
@@ -32,14 +37,15 @@ void interpreter(char *argv[])
 			if (global_number == 0 && strcmp(args[1], "0") != 0) /* if n is not a num */
 			{
 				fprintf(stderr, "L%u: usage: push integer\n", line_number);
-				exit(EXIT_FAILURE);
+				error_signal = 1;
 			}
 		}
 		function = get_function(args[0]);
 		if (function == NULL)
 		{
 			fprintf(stderr, "L%u: unknown instruction %s\n", line_number, args[0]);
-			exit(EXIT_FAILURE);
+			error_signal = 1;
+			continue;
 		}
 		function(&stack, line_number);
 		line_number++;
@@ -48,4 +54,8 @@ void interpreter(char *argv[])
 	free(line);
 	free_stack(&stack);
 	fclose(file);
+	if (error_signal)
+	{
+		exit(EXIT_FAILURE);
+	}
 }
